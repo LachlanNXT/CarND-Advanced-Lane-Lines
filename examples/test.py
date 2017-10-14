@@ -12,13 +12,13 @@ import matplotlib.pyplot as plt
 img=mpimg.imread('signs_vehicles_xygrad.jpg')
 red = np.copy(img)
 red[:,:,1:] = 0
-print('red', red)
+#print('red', red)
 green = np.copy(img)
 green[:,:,0:3:2] = 0
-print('green', green)
+#print('green', green)
 blue = np.copy(img)
 blue[:,:,:2] = 0
-print('blue', blue)
+#print('blue', blue)
 black = np.zeros_like(img)
 white = np.zeros_like(img) + 255
 
