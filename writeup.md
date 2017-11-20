@@ -2,6 +2,8 @@
 
 **Advanced Lane Finding Project**
 
+NOTE: code and some of this writeup updated to reflect review comments.
+
 The goals / steps of this project are the following:
 
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
@@ -48,6 +50,8 @@ Corrected:
 ![alt text][image4]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
+
+NOTE: Functions for this are implemented, but not used. Based on reviewer advice, I changed my binary image to use a HSV yellow selector and an RGB white selector as found in "Alternative binary image functions" in the notebook.
 
 I used a combination of:
 * Applying Sobel thresholding in x
