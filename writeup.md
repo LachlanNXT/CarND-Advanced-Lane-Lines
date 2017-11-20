@@ -42,8 +42,10 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 #### 1. Provide an example of a distortion-corrected image.
 
 Distortion correction is applied to each input image in the pipeline using the coeffiecients found during the Camera Calibration step, and `cv2.undistort()`. An example of a distortion corrected road image is below.
-
-![alt text][image3] ![alt text][image4]
+Original:
+![alt text][image3]
+Corrected:
+![alt text][image4]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -52,6 +54,7 @@ I used a combination of:
 * Magnitude of the gradient
 * Direction of the gradient
 * HLS selection
+
 to generate a binary image.
 
 Direction of gradient and Magnitude were noisy measurements, so I used logical and between them and logical or between the result of this, HLS selection, and Sobel in x. With some tuning this produced reasonable results on the test images, i.e. below. This image also shows subsequent pipeline steps discussed below.
