@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/corners.jpg "Corners"
 [image2]: ./output_images/undist.jpg "Undistorted"
 [image3]: ./test_images/straight_lines1.jpg "Distorted"
-[image4]: ./output_images/straight_lines1_undist.jpg "Undistorted"
+[image4]: ./output_images/undist_straight_lines1.jpg "Undistorted"
 [image5]: ./output_images/pipeline.png "Pipeline"
 [image6]: ./output_images/test4.jpg_final.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
@@ -42,8 +42,10 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 #### 1. Provide an example of a distortion-corrected image.
 
 Distortion correction is applied to each input image in the pipeline using the coeffiecients found during the Camera Calibration step, and `cv2.undistort()`. An example of a distortion corrected road image is below.
-
-![alt text][image3] ![alt text][image4]
+Original:
+![alt text][image3]
+Corrected:
+![alt text][image4]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -52,6 +54,7 @@ I used a combination of:
 * Magnitude of the gradient
 * Direction of the gradient
 * HLS selection
+
 to generate a binary image.
 
 Direction of gradient and Magnitude were noisy measurements, so I used logical and between them and logical or between the result of this, HLS selection, and Sobel in x. With some tuning this produced reasonable results on the test images, i.e. below. This image also shows subsequent pipeline steps discussed below.
@@ -83,7 +86,7 @@ See pipeline image above (Lines?)
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-This is also implemented in the pipeline section and is exactly as explained in the course materials, just adjusted and put into the right order in the pipline.
+This is also implemented in the pipeline section and is exactly as explained in the course materials, just adjusted and put into the right order in the pipline. I calculate the radius of curvature from the pixels to metres conversion constant provided and the quadratic fit to the lane line. I was able to do this because my perspective transform was very similar to the example.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
